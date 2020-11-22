@@ -8,7 +8,7 @@ require APPPATH . 'libraries/REST_Controller.php';
 
 /**
  * This is an example of a RestApi based on PHP and CodeIgniter 3.
- * 
+ *
  *
  * @package         CodeIgniter
  * @subpackage      Rest Server
@@ -17,7 +17,7 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class Book extends REST_Controller {
+class User extends REST_Controller {
 
     function __construct()
     {
@@ -27,36 +27,36 @@ class Book extends REST_Controller {
         // Construct the parent class
         parent::__construct();
 
-        $this->load->model('Book_model');
+        $this->load->model('User_model');
     }
 
-    public function index_get()
+    public function user_get()
     {
-        // book from a data store e.g. database  
+        // user from a data store e.g. database
 
         $id = $this->get('id');
 
-        // If the id parameter doesn't exist return all books
+        // If the id parameter doesn't exist return all users
         if ($id === NULL)
         {
-            $book=$this->Book_model->get_book(NULL);
-            // Check if the book data store contains book (in case the database result returns NULL)
-            if ($book)
+            $user=$this->User_model->get_user(NULL);
+            // Check if the user data store contains user (in case the database result returns NULL)
+            if ($user)
             {
                 // Set the response and exit
-                $this->response($book, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->response($user, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No book were found'
+                    'message' => 'No user were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
 
-         // Find and return a single record for a particular book.
+         // Find and return a single record for a particular user.
         else {
             // Validate the id.
             if ($id <= 0)
@@ -65,39 +65,39 @@ class Book extends REST_Controller {
                 $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
             }
 
-            // Get the book from the database, using the id as key for retrieval.
-            $book=$this->Book_model->get_book($id);
-            if (!empty($book))
+            // Get the user from the database, using the id as key for retrieval.
+            $user=$this->User_model->get_user($id);
+            if (!empty($user))
             {
-                $this->set_response($book, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->set_response($user, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
                 $this->set_response([
                     'status' => FALSE,
-                    'message' => 'book could not be found'
+                    'message' => 'user could not be found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
 
     }
 
-    public function index_post()
+    public function user_post()
     {
-        // Add a new book
+        // Add a new user
+        $clear_password=$this->post('password');
+        $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $add_data=array(
-          'name'=>$this->post('name'),
-          'author'=>$this->post('author'),
-          'isbn'=>$this->post('isbn')
+          'username'=>$this->post('username'),
+          'password'=>$encrypted_pass
         );
-        $insert_id=$this->Book_model->add_book($add_data);
+        $insert_id=$this->User_model->add_user($add_data);
         if($insert_id)
         {
             $message = [
-                'id_book' => $insert_id,
-                'name' => $this->post('name'),
-                'author' => $this->post('author'),
-                'isbn'=>$this->post('isbn'),
+                'id_user' => $insert_id,
+                'username' => $this->post('username'),
+                'password' => $this->post('password'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -112,30 +112,30 @@ class Book extends REST_Controller {
         }
 
     }
-    public function index_put()
+    public function user_put()
     {
-        // Update the book
+        // Update the user
         $id=$this->get('id');
+        $clear_password=$this->post('password');
+        $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $update_data=array(
-          'name'=>$this->put('name'),
-          'author'=>$this->put('author'),
-          'isbn'=>$this->put('isbn')
+          'username'=>$this->post('username'),
+          'password'=>$encrypted_pass
         );
-        $result=$this->Book_model->update_book($id, $update_data);
+        $result=$this->User_model->update_user($id, $update_data);
 
         if($result)
         {
-            $message = [
-                'id_book' => $id,
-                'name' => $this->put('name'),
-                'author'=>$this->put('author'),
-                'isbn'=>$this->put('isbn'),
-                'message' => 'Updates a resource'
-            ];
+          $message = [
+              'id_user' => $insert_id,
+              'username' => $this->post('username'),
+              'password' => $this->post('password'),
+              'message' => 'Added a resource'
+          ];
 
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
         }
-        else 
+        else
         {
             // Set the response and exit
             $this->response([
@@ -145,7 +145,7 @@ class Book extends REST_Controller {
         }
     }
 
-    public function index_delete()
+    public function user_delete()
     {
         $id = $this->get('id');
 
@@ -155,11 +155,11 @@ class Book extends REST_Controller {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        $result=$this->Book_model->delete_book($id);
+        $result=$this->User_model->delete_user($id);
         if ($result)
         {
           $message = [
-              'id_book' => $id,
+              'id_user' => $id,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);
