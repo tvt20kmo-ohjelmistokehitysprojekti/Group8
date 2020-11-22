@@ -30,7 +30,7 @@ class Book extends REST_Controller {
         $this->load->model('Book_model');
     }
 
-    public function index_get()
+    public function book_get()
     {
         // book from a data store e.g. database  
 
@@ -82,7 +82,7 @@ class Book extends REST_Controller {
 
     }
 
-    public function index_post()
+    public function book_post()
     {
         // Add a new book
         $add_data=array(
@@ -112,7 +112,7 @@ class Book extends REST_Controller {
         }
 
     }
-    public function index_put()
+    public function book_put()
     {
         // Update the book
         $id=$this->get('id');
@@ -145,7 +145,7 @@ class Book extends REST_Controller {
         }
     }
 
-    public function index_delete()
+    public function book_delete()
     {
         $id = $this->get('id');
 
