@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
     public function check_login(){
-        $this->load->model('User_model');
-        $username=$this->input->get('username');
-        $plaintext_password=$this->input->get('password');
-        $encrypted_password=$this->User_model->check_login($username);
+        $this->load->model('Login_model');
+        $kortti=$this->input->get('Kortti');
+        $plaintext_pin=$this->input->get('pin');
+        $encrypted_pin=$this->Login_model->check_login($kortti);
 
-        if(password_verify($plaintext_password,$encrypted_password)){
+        if(password_verify($plaintext_pin,$encrypted_pin)){
           $result=true;
         }
         else{

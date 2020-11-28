@@ -17,7 +17,7 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class tili extends REST_Controller {
+class Debit extends REST_Controller {
 
     function __construct()
     {
@@ -87,7 +87,7 @@ class tili extends REST_Controller {
         $add_data=array(
           'Saldo'=>$this->post('saldo'),
         );
-        $insert_id=$this->Debit_model->add_tili($add_data);
+        $insert_id=$this->Debit_model->add_debit($add_data);
         if($insert_id)
         {
             $message = [
@@ -114,7 +114,7 @@ class tili extends REST_Controller {
         $update_data=array(
           'Debit'=>$this->put('Debit'),
         );
-        $result=$this->Debit_model->update_Debit($id, $update_data);
+        $result=$this->Debit_model->update_debit($id, $update_data);
 
         if($result)
         {
@@ -146,7 +146,7 @@ class tili extends REST_Controller {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        $result=$this->Debit_model->delete_Debit($id);
+        $result=$this->Debit_model->delete_debit($id);
         if ($result)
         {
           $message = [
@@ -164,5 +164,4 @@ class tili extends REST_Controller {
             ], REST_Controller::HTTP_CONFLICT); // CAN NOT CREATE (409) being the HTTP response code
         }
     }
-
-
+}
