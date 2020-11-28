@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
-/** @noinspection PhpaikkacludeInspection */
+/** @noinspection PhpIncludeInspection */
 require APPPATH . 'libraries/REST_Controller.php';
 
 /**
@@ -17,7 +17,7 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class tapahtumat extends REST_Controller {
+class Kortti extends REST_Controller {
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class tapahtumat extends REST_Controller {
         // Construct the parent class
         parent::__construct();
 
-        $this->load->model('tilitapahtumat_model');
+        $this->load->model('Kortti_model');
     }
 
     public function index_get()
@@ -39,19 +39,19 @@ class tapahtumat extends REST_Controller {
         // If the id parameter doesn't exist return all users
         if ($id === NULL)
         {
-            $tilitapahtumat=$this->tilitapahtumat_model->get_tilitapahtumat(NULL);
+            $kortti=$this->Kortti_model->get_kortti(NULL);
             // Check if the user data store contains user (in case the database result returns NULL)
-            if ($tilitapahtumat)
+            if ($kortti)
             {
                 // Set the response and exit
-                $this->response($tilitapahtumat, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->response($kortti, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No tapahtumat were found'
+                    'message' => 'No kortti were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
@@ -66,10 +66,10 @@ class tapahtumat extends REST_Controller {
             }
 
             // Get the user from the database, using the id as key for retrieval.
-            $user=$this->tilitapahtumat_model->get_tilitapahtumat($id);
-            if (!empty($tilitapahtumat))
+            $user=$this->Kortti_model->get_kortti($id);
+            if (!empty($kortti))
             {
-                $this->set_response($tilitapahtumat, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->set_response($kortti, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
@@ -86,15 +86,14 @@ class tapahtumat extends REST_Controller {
     {
         // Add a new book
         $add_data=array(
-          'Pvm/klo'=>$this->post('pvm/klo'),
-         
+          'PIN'=>$this->post('pin'),
         );
-        $insert_id=$this->tapahtumat_model->add_tilitapahtumat($add_data);
+        $insert_id=$this->Kortti_model->add_kortti($add_data);
         if($insert_id)
         {
             $message = [
-                'idTilitapahtumat' => $insert_id,
-                'Pvm/klo' => $this->post('pvm/klo'),
+                'idKortti' => $insert_id,
+                'PIN' => $this->post('pin'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -114,18 +113,15 @@ class tapahtumat extends REST_Controller {
         // Update the book
         $id=$this->get('id');
         $update_data=array(
-          'Pvm/klo'=>$this->put('Pvm/klo'),
-        
+          'PIN'=>$this->put('pin'),
         );
-        $result=$this->tilitapahtumat_model->update_tilitapahtumat($id, $update_data);
+        $result=$this->Kortti_model->update_kortti($id, $update_data);
 
         if($result)
         {
             $message = [
-                'idTilitapahtumat' => $id,
-                'Pvm/klo' => $this->put('pvm'),
-                'paikka'=>$this->put('paikka'),
-                'summa'=>$this->post('summa'),
+                'idKortti' => $id,
+                'PIN'=>$this->put('pin'),
                 'message' => 'Updates a resource'
             ];
 
@@ -151,11 +147,11 @@ class tapahtumat extends REST_Controller {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        $result=$this->tapahtumat_model->delete_tapahtumat($id);
+        $result=$this->Kortti_model->delete_kortti($id);
         if ($result)
         {
           $message = [
-              'idtapahtumat' => $id,
+              'idKortti' => $id,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);

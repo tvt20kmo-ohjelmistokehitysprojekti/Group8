@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
-/** @noinspection PhpIncludeInspection */
+/** @noinspection PhpaikkacludeInspection */
 require APPPATH . 'libraries/REST_Controller.php';
 
 /**
@@ -17,7 +17,7 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class pankkikortti extends REST_Controller {
+class Tilitapahtumat extends REST_Controller {
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class pankkikortti extends REST_Controller {
         // Construct the parent class
         parent::__construct();
 
-        $this->load->model('tilitapahtumat_model');
+        $this->load->model('Tilitapahtumat_model');
     }
 
     public function index_get()
@@ -39,19 +39,19 @@ class pankkikortti extends REST_Controller {
         // If the id parameter doesn't exist return all users
         if ($id === NULL)
         {
-            $pankkikortti=$this->kortti_model->get_kortti(NULL);
+            $tilitapahtumat=$this->Tilitapahtumat_model->get_tilitapahtumat(NULL);
             // Check if the user data store contains user (in case the database result returns NULL)
-            if ($kortti)
+            if ($tilitapahtumat)
             {
                 // Set the response and exit
-                $this->response($kortti, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->response($tilitapahtumat, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No kortti were found'
+                    'message' => 'No tapahtumat were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
@@ -66,10 +66,10 @@ class pankkikortti extends REST_Controller {
             }
 
             // Get the user from the database, using the id as key for retrieval.
-            $user=$this->kortti_model->get_kortti($id);
-            if (!empty($kortti))
+            $user=$this->Tilitapahtumat_model->get_tilitapahtumat($id);
+            if (!empty($tilitapahtumat))
             {
-                $this->set_response($kortti, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+                $this->set_response($tilitapahtumat, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
             }
             else
             {
@@ -86,14 +86,15 @@ class pankkikortti extends REST_Controller {
     {
         // Add a new book
         $add_data=array(
-          'PIN'=>$this->post('pin'),
+          'Pvm/klo'=>$this->post('pvm/klo'),
+         
         );
-        $insert_id=$this->kortti_model->add_kortti($add_data);
+        $insert_id=$this->Tilitapahtumat_model->add_tilitapahtumat($add_data);
         if($insert_id)
         {
             $message = [
-                'idKortti' => $insert_id,
-                'PIN' => $this->post('pin'),
+                'idTilitapahtumat' => $insert_id,
+                'Pvm/klo' => $this->post('pvm/klo'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -111,17 +112,18 @@ class pankkikortti extends REST_Controller {
     public function index_put()
     {
         // Update the book
-        $id=$this->get('id');
+        $id=$this->input->get('id');
         $update_data=array(
-          'PIN'=>$this->put('pin'),
+          'Pvm/klo'=>$this->put('pvm/klo'),
+        
         );
-        $result=$this->kortti_model->update_kortti($id, $update_data);
+        $result=$this->Tilitapahtumat_model->update_tilitapahtumat($id, $update_data);
 
         if($result)
         {
             $message = [
-                'idKortti' => $id,
-                'PIN'=>$this->put('pin'),
+                'idTilitapahtumat' => $id,
+                'Pvm/klo' => $this->put('pvm/klo'),
                 'message' => 'Updates a resource'
             ];
 
@@ -139,7 +141,7 @@ class pankkikortti extends REST_Controller {
 
     public function index_delete()
     {
-        $id = $this->get('id');
+        $id = $this->input->get('id');
 
         // Validate the id.
         if ($id <= 0)
@@ -147,11 +149,11 @@ class pankkikortti extends REST_Controller {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        $result=$this->kortti_model->delete_kortti($id);
+        $result=$this->Tilitapahtumat_model->delete_tilitapahtumat($id);
         if ($result)
         {
           $message = [
-              'idKortti' => $id,
+              'idTilitapahtumat' => $id,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);
