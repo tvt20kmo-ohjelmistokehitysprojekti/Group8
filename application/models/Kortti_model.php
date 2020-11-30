@@ -14,8 +14,8 @@ class Kortti_model extends CI_model
   }
   function add_kortti($add_data){
     $this->db->insert('Kortti',$add_data);
-    if($this->db->insert_id()!==NULL){
-      return $this->db->insert_id();
+    if($this->db->affected_rows()!==NULL){
+      return TRUE;
     }
     else {
       return FALSE;

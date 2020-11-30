@@ -86,7 +86,7 @@ class Tilitapahtumat extends REST_Controller {
     {
         // Add a new book
         $add_data=array(
-          'Pvm/klo'=>$this->post('pvm/klo'),
+          'Kortti_idKortti'=>$this->post('Kortti_idKortti')
          
         );
         $insert_id=$this->Tilitapahtumat_model->add_tilitapahtumat($add_data);
@@ -94,7 +94,6 @@ class Tilitapahtumat extends REST_Controller {
         {
             $message = [
                 'idTilitapahtumat' => $insert_id,
-                'Pvm/klo' => $this->post('pvm/klo'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -114,7 +113,7 @@ class Tilitapahtumat extends REST_Controller {
         // Update the book
         $id=$this->input->get('id');
         $update_data=array(
-          'Pvm/klo'=>$this->put('pvm/klo'),
+            'Kortti_idKortti'=>$this->post('Kortti_idKortti')
         
         );
         $result=$this->Tilitapahtumat_model->update_tilitapahtumat($id, $update_data);
@@ -123,7 +122,6 @@ class Tilitapahtumat extends REST_Controller {
         {
             $message = [
                 'idTilitapahtumat' => $id,
-                'Pvm/klo' => $this->put('pvm/klo'),
                 'message' => 'Updates a resource'
             ];
 

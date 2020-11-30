@@ -85,15 +85,22 @@ class Kortti extends REST_Controller {
     public function index_post()
     {
         // Add a new book
+        $clearpin=$this->post('pin');
+        $pin=password_hash($clearpin,PASSWORD_DEFAULT);
         $add_data=array(
-          'PIN'=>$this->post('pin'),
+          'PIN'=>$pin,
+          'idKortti'=>$this->post('idKortti'),
+          'Kayttaja_idKayttaja'=>$this->post('Kayttaja_idKayttaja'),
+          'Credit_idCredit'=>$this->post('Credit_idCredit'),
+          'Debit_idDebit'=>$this->post('Debit_idDebit')
+
         );
-        $insert_id=$this->Kortti_model->add_kortti($add_data);
-        if($insert_id)
+        $result=$this->Kortti_model->add_kortti($add_data);
+        if($result)
         {
             $message = [
-                'idKortti' => $insert_id,
-                'PIN' => $this->post('pin'),
+                'idKortti'=>$this->post('idKortti'),
+                'PIN' => $pin,
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -111,10 +118,17 @@ class Kortti extends REST_Controller {
     public function index_put()
     {
         // Update the book
-        $id=$this->get('id');
+        $clearpin=$this->post('pin');
+        $pin=password_hash($clearpin,PASSWORD_DEFAULT);
+        $id=$this->get('idKortti');
         $update_data=array(
-          'PIN'=>$this->put('pin'),
-        );
+            'PIN'=>$pin,
+            'Kayttaja_idKayttaja'=>$this->post('Kayttaja_idKayttaja'),
+            'Credit_idCredit'=>$this->post('Credit_idCredit'),
+            'Debit_idDebit'=>$this->post('Debit_idDebit')
+  
+          );
+        
         $result=$this->Kortti_model->update_kortti($id, $update_data);
 
         if($result)
