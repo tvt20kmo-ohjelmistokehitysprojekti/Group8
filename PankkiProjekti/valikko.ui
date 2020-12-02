@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="btnNosta">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>280</x>
      <y>70</y>
      <width>241</width>
      <height>91</height>

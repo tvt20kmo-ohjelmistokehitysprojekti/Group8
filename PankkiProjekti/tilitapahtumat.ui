@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1031</width>
-    <height>656</height>
+    <width>1146</width>
+    <height>661</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,13 +49,13 @@
     <string>Peruuta</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditTilitapahtumat">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>30</y>
+     <x>265</x>
+     <y>50</y>
      <width>781</width>
-     <height>521</height>
+     <height>501</height>
     </rect>
    </property>
   </widget>
