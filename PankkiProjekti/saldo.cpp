@@ -1,3 +1,4 @@
+#include "valikko.h"
 #include "saldo.h"
 #include "ui_saldo.h"
 
@@ -15,5 +16,7 @@ Saldo::~Saldo()
 
 void Saldo::on_btnPeruutaSaldo_clicked()
 {
-
+    hide();
+    Valikko *va = new Valikko();
+    va->show();
 }

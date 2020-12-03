@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btnNostaMuu_clicked();
 
+    void on_btnPeruuta_clicked();
+
 private:
     Ui::MuuSumma *ui;
 };

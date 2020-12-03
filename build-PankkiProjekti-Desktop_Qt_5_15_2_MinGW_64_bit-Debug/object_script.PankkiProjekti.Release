@@ -1,0 +1,15 @@
+release/main.o
+release/mainwindow.o
+release/muusumma.o
+release/nosta.o
+release/nostoonnistui.o
+release/saldo.o
+release/tilitapahtumat.o
+release/valikko.o
+release/moc_mainwindow.o
+release/moc_muusumma.o
+release/moc_nosta.o
+release/moc_nostoonnistui.o
+release/moc_saldo.o
+release/moc_tilitapahtumat.o
+release/moc_valikko.o

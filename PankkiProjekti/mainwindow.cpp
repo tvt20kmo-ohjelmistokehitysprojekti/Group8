@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "valikko.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -16,5 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnKirjaudu_clicked()
 {
-
+    hide();
+    Valikko *va = new Valikko();
+    va->show();
 }

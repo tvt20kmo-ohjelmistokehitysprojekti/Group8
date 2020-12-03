@@ -1,0 +1,15 @@
+debug/main.o
+debug/mainwindow.o
+debug/muusumma.o
+debug/nosta.o
+debug/nostoonnistui.o
+debug/saldo.o
+debug/tilitapahtumat.o
+debug/valikko.o
+debug/moc_mainwindow.o
+debug/moc_muusumma.o
+debug/moc_nosta.o
+debug/moc_nostoonnistui.o
+debug/moc_saldo.o
+debug/moc_tilitapahtumat.o
+debug/moc_valikko.o
