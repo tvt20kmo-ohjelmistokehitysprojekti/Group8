@@ -223,6 +223,7 @@ Makefile: ../PankkiProjekti/PankkiProjekti.pro ../../../../QtCreator20/5.15.2/mi
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/qt_config.prf \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/toolchain.prf \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/default_pre.prf \
@@ -249,9 +250,9 @@ Makefile: ../PankkiProjekti/PankkiProjekti.pro ../../../../QtCreator20/5.15.2/mi
 		../PankkiProjekti/PankkiProjekti.pro \
 		../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Widgets.prl \
 		../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Gui.prl \
+		../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Network.prl \
 		../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		../../../../QtCreator20/5.15.2/mingw81_64/lib/qtmain.prl \
-		.qmake.stash \
 		../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\PankkiProjekti\PankkiProjekti.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/spec_pre.prf:
@@ -407,6 +408,7 @@ Makefile: ../PankkiProjekti/PankkiProjekti.pro ../../../../QtCreator20/5.15.2/mi
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/qt_config.prf:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/toolchain.prf:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/default_pre.prf:
@@ -433,9 +435,9 @@ Makefile: ../PankkiProjekti/PankkiProjekti.pro ../../../../QtCreator20/5.15.2/mi
 ../PankkiProjekti/PankkiProjekti.pro:
 ../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
 ../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Gui.prl:
+../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Network.prl:
 ../../../../QtCreator20/5.15.2/mingw81_64/lib/Qt5Core.prl:
 ../../../../QtCreator20/5.15.2/mingw81_64/lib/qtmain.prl:
-.qmake.stash:
 ../../../../QtCreator20/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\PankkiProjekti\PankkiProjekti.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

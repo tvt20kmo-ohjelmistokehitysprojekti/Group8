@@ -30,6 +30,7 @@ public:
     QLabel *labelPin;
     QLineEdit *lineEditId;
     QLineEdit *lineEditPin;
+    QLabel *labelLoginTest;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -56,10 +57,14 @@ public:
         labelPin->setFont(font);
         lineEditId = new QLineEdit(centralwidget);
         lineEditId->setObjectName(QString::fromUtf8("lineEditId"));
-        lineEditId->setGeometry(QRect(270, 180, 151, 31));
+        lineEditId->setGeometry(QRect(270, 180, 161, 41));
         lineEditPin = new QLineEdit(centralwidget);
         lineEditPin->setObjectName(QString::fromUtf8("lineEditPin"));
         lineEditPin->setGeometry(QRect(270, 240, 161, 31));
+        labelLoginTest = new QLabel(centralwidget);
+        labelLoginTest->setObjectName(QString::fromUtf8("labelLoginTest"));
+        labelLoginTest->setGeometry(QRect(80, 110, 411, 51));
+        labelLoginTest->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -80,6 +85,7 @@ public:
         btnKirjaudu->setText(QCoreApplication::translate("MainWindow", "Kirjaudu", nullptr));
         labelId->setText(QCoreApplication::translate("MainWindow", "Id", nullptr));
         labelPin->setText(QCoreApplication::translate("MainWindow", "Pin", nullptr));
+        labelLoginTest->setText(QString());
     } // retranslateUi
 
 };

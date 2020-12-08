@@ -13,13 +13,13 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
+DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\PankkiProjekti -I. -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtWidgets -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtGui -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtANGLE -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtCore -Idebug -I. -I/include -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\win32-g++ 
+INCPATH       = -I..\PankkiProjekti -I. -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtWidgets -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtGui -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtANGLE -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtNetwork -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\include\QtCore -Idebug -I. -I/include -I..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Widgets.a C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Gui.a C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Core.a  -lmingw32 C:\QtCreator20\5.15.2\mingw81_64\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.7.25-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
+LIBS        =        C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Widgets.a C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Gui.a C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Network.a C:\QtCreator20\5.15.2\mingw81_64\lib\libQt5Core.a  -lmingw32 C:\QtCreator20\5.15.2\mingw81_64\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.7.25-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
 QMAKE         = C:\QtCreator20\5.15.2\mingw81_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -104,7 +104,7 @@ DESTDIR_TARGET = debug\PankkiProjekti.exe
 first: all
 all: Makefile.Debug  debug/PankkiProjekti.exe
 
-debug/PankkiProjekti.exe: C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Widgets.a C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Gui.a C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Core.a C:/QtCreator20/5.15.2/mingw81_64/lib/libqtmain.a ui_mainwindow.h ui_muusumma.h ui_nosta.h ui_nostoonnistui.h ui_saldo.h ui_tilitapahtumat.h ui_valikko.h $(OBJECTS) 
+debug/PankkiProjekti.exe: C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Widgets.a C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Gui.a C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Network.a C:/QtCreator20/5.15.2/mingw81_64/lib/libQt5Core.a C:/QtCreator20/5.15.2/mingw81_64/lib/libqtmain.a ui_mainwindow.h ui_muusumma.h ui_nosta.h ui_nostoonnistui.h ui_saldo.h ui_tilitapahtumat.h ui_valikko.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.PankkiProjekti.Debug  $(LIBS)
 
 qmake: FORCE
@@ -113,7 +113,7 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) PankkiProjekti.zip $(SOURCES) $(DIST) ..\PankkiProjekti\PankkiProjekti.pro ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\spec_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\qdevice.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\device_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\sanitize.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\gcc-base.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\g++-base.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\angle.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\windows-vulkan.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\g++-win32.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\windows-desktop.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\qconfig.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt_functions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\win32-g++\qmake.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exclusive_builds.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\toolchain.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\default_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\default_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resolve_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\default_post.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\build_pass.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qml_debug.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\precompile_header.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\warn_on.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resources_functions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resources.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\moc.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\opengl.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\uic.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qmake_use.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\file_copies.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\windows.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\testcase_targets.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exceptions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\yacc.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\lex.prf ..\PankkiProjekti\PankkiProjekti.pro ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Widgets.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Gui.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Core.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\qtmain.prl    ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\data\dummy.cpp ..\PankkiProjekti\mainwindow.h ..\PankkiProjekti\muusumma.h ..\PankkiProjekti\nosta.h ..\PankkiProjekti\nostoonnistui.h ..\PankkiProjekti\saldo.h ..\PankkiProjekti\tilitapahtumat.h ..\PankkiProjekti\valikko.h  ..\PankkiProjekti\main.cpp ..\PankkiProjekti\mainwindow.cpp ..\PankkiProjekti\muusumma.cpp ..\PankkiProjekti\nosta.cpp ..\PankkiProjekti\nostoonnistui.cpp ..\PankkiProjekti\saldo.cpp ..\PankkiProjekti\tilitapahtumat.cpp ..\PankkiProjekti\valikko.cpp ..\PankkiProjekti\mainwindow.ui ..\PankkiProjekti\muusumma.ui ..\PankkiProjekti\nosta.ui ..\PankkiProjekti\nostoonnistui.ui ..\PankkiProjekti\saldo.ui ..\PankkiProjekti\tilitapahtumat.ui ..\PankkiProjekti\valikko.ui    
+	$(ZIP) PankkiProjekti.zip $(SOURCES) $(DIST) ..\PankkiProjekti\PankkiProjekti.pro ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\spec_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\qdevice.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\device_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\sanitize.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\gcc-base.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\g++-base.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\angle.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\windows-vulkan.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\g++-win32.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\common\windows-desktop.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\qconfig.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt_functions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\win32-g++\qmake.conf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exclusive_builds.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\toolchain.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\default_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\default_pre.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resolve_config.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\default_post.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\build_pass.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qml_debug.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\precompile_header.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\warn_on.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qt.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resources_functions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\resources.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\moc.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\opengl.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\uic.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\qmake_use.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\file_copies.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\win32\windows.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\testcase_targets.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\exceptions.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\yacc.prf ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\lex.prf ..\PankkiProjekti\PankkiProjekti.pro ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Widgets.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Gui.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Network.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\Qt5Core.prl ..\..\..\..\QtCreator20\5.15.2\mingw81_64\lib\qtmain.prl    ..\..\..\..\QtCreator20\5.15.2\mingw81_64\mkspecs\features\data\dummy.cpp ..\PankkiProjekti\mainwindow.h ..\PankkiProjekti\muusumma.h ..\PankkiProjekti\nosta.h ..\PankkiProjekti\nostoonnistui.h ..\PankkiProjekti\saldo.h ..\PankkiProjekti\tilitapahtumat.h ..\PankkiProjekti\valikko.h  ..\PankkiProjekti\main.cpp ..\PankkiProjekti\mainwindow.cpp ..\PankkiProjekti\muusumma.cpp ..\PankkiProjekti\nosta.cpp ..\PankkiProjekti\nostoonnistui.cpp ..\PankkiProjekti\saldo.cpp ..\PankkiProjekti\tilitapahtumat.cpp ..\PankkiProjekti\valikko.cpp ..\PankkiProjekti\mainwindow.ui ..\PankkiProjekti\muusumma.ui ..\PankkiProjekti\nosta.ui ..\PankkiProjekti\nostoonnistui.ui ..\PankkiProjekti\saldo.ui ..\PankkiProjekti\tilitapahtumat.ui ..\PankkiProjekti\valikko.ui    
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\muusumma.o debug\nosta.o debug\nostoonnistui.o debug\saldo.o debug\tilitapahtumat.o debug\valikko.o debug\moc_mainwindow.o debug\moc_muusumma.o debug\moc_nosta.o debug\moc_nostoonnistui.o debug\moc_saldo.o debug\moc_tilitapahtumat.o debug\moc_valikko.o
@@ -253,7 +253,7 @@ debug/moc_mainwindow.cpp: ../PankkiProjekti/mainwindow.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_muusumma.cpp: ../PankkiProjekti/muusumma.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -361,7 +361,7 @@ debug/moc_muusumma.cpp: ../PankkiProjekti/muusumma.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\muusumma.h -o debug\moc_muusumma.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\muusumma.h -o debug\moc_muusumma.cpp
 
 debug/moc_nosta.cpp: ../PankkiProjekti/nosta.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -469,7 +469,7 @@ debug/moc_nosta.cpp: ../PankkiProjekti/nosta.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\nosta.h -o debug\moc_nosta.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\nosta.h -o debug\moc_nosta.cpp
 
 debug/moc_nostoonnistui.cpp: ../PankkiProjekti/nostoonnistui.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -577,7 +577,7 @@ debug/moc_nostoonnistui.cpp: ../PankkiProjekti/nostoonnistui.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\nostoonnistui.h -o debug\moc_nostoonnistui.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\nostoonnistui.h -o debug\moc_nostoonnistui.cpp
 
 debug/moc_saldo.cpp: ../PankkiProjekti/saldo.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -685,7 +685,7 @@ debug/moc_saldo.cpp: ../PankkiProjekti/saldo.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\saldo.h -o debug\moc_saldo.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\saldo.h -o debug\moc_saldo.cpp
 
 debug/moc_tilitapahtumat.cpp: ../PankkiProjekti/tilitapahtumat.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -793,7 +793,7 @@ debug/moc_tilitapahtumat.cpp: ../PankkiProjekti/tilitapahtumat.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\tilitapahtumat.h -o debug\moc_tilitapahtumat.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\tilitapahtumat.h -o debug\moc_tilitapahtumat.cpp
 
 debug/moc_valikko.cpp: ../PankkiProjekti/valikko.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
@@ -901,7 +901,7 @@ debug/moc_valikko.cpp: ../PankkiProjekti/valikko.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/bin/moc.exe
-	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\valikko.h -o debug\moc_valikko.cpp
+	C:\QtCreator20\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/UniServerZ/www/Group8/build-PankkiProjekti-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QtCreator20/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/UniServerZ/www/Group8/PankkiProjekti -IC:/QtCreator20/5.15.2/mingw81_64/include -IC:/QtCreator20/5.15.2/mingw81_64/include/QtWidgets -IC:/QtCreator20/5.15.2/mingw81_64/include/QtGui -IC:/QtCreator20/5.15.2/mingw81_64/include/QtANGLE -IC:/QtCreator20/5.15.2/mingw81_64/include/QtNetwork -IC:/QtCreator20/5.15.2/mingw81_64/include/QtCore -I. -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/QtCreator20/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/QtCreator20/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PankkiProjekti\valikko.h -o debug\moc_valikko.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1173,7 +1173,224 @@ debug/mainwindow.o: ../PankkiProjekti/mainwindow.cpp ../PankkiProjekti/mainwindo
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QMenuBar \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qmenubar.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
+		../PankkiProjekti/valikko.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QtNetwork \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QtNetworkDepends \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QtCore \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QtCoreDepends \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractanimation.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractproxymodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractstate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstracttransition.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qanimationgroup.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qarraydataops.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qarraydatapointer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qbitarray.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qbuffer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qbytearraymatcher.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcache.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcalendar.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborarray.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/quuid.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcbormap.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborstream.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborstreamreader.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfloat16.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcborstreamwriter.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcollator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcommandlineoption.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcommandlineparser.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcryptographichash.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qdeadlinetimer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qdir.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfileinfo.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qdiriterator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeasingcurve.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qendian.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventtransition.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qexception.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfactoryinterface.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfileselector.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QObject \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QStringList \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfilesystemwatcher.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfinalstate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfuture.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfutureinterface.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qrunnable.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qresultstore.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfuturesynchronizer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfuturewatcher.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qhistorystate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qidentityproxymodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qisenum.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qjsondocument.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qjsonobject.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qlibrary.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qlibraryinfo.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qversionnumber.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qlinkedlist.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qlockfile.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qloggingcategory.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmath.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmessageauthenticationcode.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmimedata.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmimedatabase.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qmimetype.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qobjectcleanuphandler.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qoperatingsystemversion.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qparallelanimationgroup.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qpauseanimation.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qplugin.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qpointer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qpluginloader.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qprocess.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qpropertyanimation.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qvariantanimation.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qqueue.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qrandom.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qreadwritelock.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qresource.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsavefile.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qscopedvaluerollback.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qscopeguard.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsemaphore.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsequentialanimationgroup.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsettings.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsharedmemory.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsignalmapper.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsignaltransition.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsocketnotifier.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsortfilterproxymodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstack.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstandardpaths.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstatemachine.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstorageinfo.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qstringlistmodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qsystemsemaphore.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtemporarydir.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtemporaryfile.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtextboundaryfinder.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtextcodec.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qthread.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qthreadpool.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qthreadstorage.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtimeline.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtimer.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtimezone.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtranslator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtransposeproxymodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtypetraits.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qwaitcondition.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QDeadlineTimer \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qwineventnotifier.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qxmlstream.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qtcoreversion.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qabstractnetworkcache.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QString \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QUrl \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qabstractsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qauthenticator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qdnslookup.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qdtls.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qtcpsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslerror.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslcertificate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qssl.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QFlags \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qhostaddress.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qhostinfo.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qhstspolicy.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qhttp2configuration.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qhttpmultipart.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QByteArray \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QIODevice \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QNetworkRequest \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qlocalserver.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qlocalsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkaccessmanager.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVector \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QSslConfiguration \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslconfiguration.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QMetaType \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfigmanager.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkcookie.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QList \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkcookiejar.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkdatagram.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkdiskcache.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkinterface.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkproxy.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworkreply.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/QNetworkAccessManager \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qnetworksession.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qocspresponse.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qpassworddigestor.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QCryptographicHash \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsctpserver.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qtcpserver.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsctpsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslcertificateextension.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslcipher.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qssldiffiehellmanparameters.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslellipticcurve.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QHash \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qsslkey.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qudpsocket.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtNetwork/qtnetworkversion.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QJsonDocument
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\PankkiProjekti\mainwindow.cpp
 
 debug/muusumma.o: ../PankkiProjekti/muusumma.cpp ../PankkiProjekti/muusumma.h \
@@ -1280,7 +1497,30 @@ debug/muusumma.o: ../PankkiProjekti/muusumma.cpp ../PankkiProjekti/muusumma.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_muusumma.h
+		ui_muusumma.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		../PankkiProjekti/nostoonnistui.h \
+		../PankkiProjekti/nosta.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\muusumma.o ..\PankkiProjekti\muusumma.cpp
 
 debug/nosta.o: ../PankkiProjekti/nosta.cpp ../PankkiProjekti/nosta.h \
@@ -1387,7 +1627,22 @@ debug/nosta.o: ../PankkiProjekti/nosta.cpp ../PankkiProjekti/nosta.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_nosta.h
+		ui_nosta.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		../PankkiProjekti/valikko.h \
+		../PankkiProjekti/muusumma.h \
+		../PankkiProjekti/nostoonnistui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\nosta.o ..\PankkiProjekti\nosta.cpp
 
 debug/nostoonnistui.o: ../PankkiProjekti/nostoonnistui.cpp ../PankkiProjekti/nostoonnistui.h \
@@ -1494,10 +1749,25 @@ debug/nostoonnistui.o: ../PankkiProjekti/nostoonnistui.cpp ../PankkiProjekti/nos
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_nostoonnistui.h
+		ui_nostoonnistui.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\nostoonnistui.o ..\PankkiProjekti\nostoonnistui.cpp
 
-debug/saldo.o: ../PankkiProjekti/saldo.cpp ../PankkiProjekti/saldo.h \
+debug/saldo.o: ../PankkiProjekti/saldo.cpp ../PankkiProjekti/valikko.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QWidget \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1601,7 +1871,29 @@ debug/saldo.o: ../PankkiProjekti/saldo.cpp ../PankkiProjekti/saldo.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_saldo.h
+		../PankkiProjekti/saldo.h \
+		ui_saldo.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\saldo.o ..\PankkiProjekti\saldo.cpp
 
 debug/tilitapahtumat.o: ../PankkiProjekti/tilitapahtumat.cpp ../PankkiProjekti/tilitapahtumat.h \
@@ -1708,7 +2000,42 @@ debug/tilitapahtumat.o: ../PankkiProjekti/tilitapahtumat.cpp ../PankkiProjekti/t
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_tilitapahtumat.h
+		ui_tilitapahtumat.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QHeaderView \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qheaderview.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QTableView \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qtableview.h \
+		../PankkiProjekti/valikko.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tilitapahtumat.o ..\PankkiProjekti\tilitapahtumat.cpp
 
 debug/valikko.o: ../PankkiProjekti/valikko.cpp ../PankkiProjekti/valikko.h \
@@ -1815,7 +2142,22 @@ debug/valikko.o: ../PankkiProjekti/valikko.cpp ../PankkiProjekti/valikko.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_valikko.h
+		ui_valikko.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../../QtCreator20/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		../PankkiProjekti/nosta.h \
+		../PankkiProjekti/saldo.h \
+		../PankkiProjekti/tilitapahtumat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\valikko.o ..\PankkiProjekti\valikko.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
