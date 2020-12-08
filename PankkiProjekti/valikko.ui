@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1144</width>
-    <height>662</height>
+    <width>600</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="btnNosta">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>70</y>
+     <x>170</x>
+     <y>100</y>
      <width>241</width>
      <height>91</height>
     </rect>
@@ -34,8 +34,8 @@
   <widget class="QPushButton" name="btnSaldo">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>180</y>
+     <x>170</x>
+     <y>210</y>
      <width>231</width>
      <height>81</height>
     </rect>
@@ -52,8 +52,8 @@
   <widget class="QPushButton" name="btnTilitapahtumat">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>280</y>
+     <x>170</x>
+     <y>310</y>
      <width>231</width>
      <height>91</height>
     </rect>
@@ -70,8 +70,8 @@
   <widget class="QPushButton" name="btnPeruuta">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>440</y>
+     <x>200</x>
+     <y>450</y>
      <width>161</width>
      <height>61</height>
     </rect>

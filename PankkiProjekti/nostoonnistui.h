@@ -15,6 +15,9 @@ public:
     explicit NostoOnnistui(QWidget *parent = nullptr);
     ~NostoOnnistui();
 
+private slots:
+    void on_btnLopeta_clicked();
+
 private:
     Ui::NostoOnnistui *ui;
 };

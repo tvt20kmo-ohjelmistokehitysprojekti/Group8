@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1146</width>
-    <height>661</height>
+    <width>600</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="labelTilitapahtumat">
    <property name="geometry">
     <rect>
-     <x>34</x>
-     <y>180</y>
+     <x>150</x>
+     <y>0</y>
      <width>201</width>
      <height>41</height>
     </rect>
@@ -34,8 +34,8 @@
   <widget class="QPushButton" name="btnPeruuta">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>560</y>
+     <x>100</x>
+     <y>510</y>
      <width>331</width>
      <height>61</height>
     </rect>
@@ -52,10 +52,10 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>265</x>
-     <y>50</y>
-     <width>781</width>
-     <height>501</height>
+     <x>60</x>
+     <y>60</y>
+     <width>431</width>
+     <height>421</height>
     </rect>
    </property>
   </widget>

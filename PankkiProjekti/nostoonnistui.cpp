@@ -12,3 +12,8 @@ NostoOnnistui::~NostoOnnistui()
 {
     delete ui;
 }
+
+void NostoOnnistui::on_btnLopeta_clicked()
+{
+    hide();
+}
