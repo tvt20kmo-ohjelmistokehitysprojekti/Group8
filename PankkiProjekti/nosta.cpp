@@ -20,28 +20,28 @@ Nosta::~Nosta()
 void Nosta::on_btn20_clicked()
 {
     hide();
-    NostoOnnistui *nosto = new NostoOnnistui();
+    NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
     nosto->show();
 }
 
 void Nosta::on_btn40_clicked()
 {
     hide();
-    NostoOnnistui *nosto = new NostoOnnistui();
+    NostoOnnistui *nosto = new NostoOnnistui("40€ Nostettu.");
     nosto->show();
 }
 
 void Nosta::on_btn50_clicked()
 {
     hide();
-    NostoOnnistui *nosto = new NostoOnnistui();
+    NostoOnnistui *nosto = new NostoOnnistui("50€ Nostettu.");
     nosto->show();
 }
 
 void Nosta::on_btn100_clicked()
 {
     hide();
-    NostoOnnistui *nosto = new NostoOnnistui();
+    NostoOnnistui *nosto = new NostoOnnistui("100€ Nostettu.");
     nosto->show();
 }
 

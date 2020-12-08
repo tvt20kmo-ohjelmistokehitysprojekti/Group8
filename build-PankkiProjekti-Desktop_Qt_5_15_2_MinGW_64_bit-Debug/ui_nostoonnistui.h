@@ -30,12 +30,13 @@ public:
         NostoOnnistui->resize(600, 600);
         labelOnnistuiko = new QLabel(NostoOnnistui);
         labelOnnistuiko->setObjectName(QString::fromUtf8("labelOnnistuiko"));
-        labelOnnistuiko->setGeometry(QRect(50, 130, 501, 191));
+        labelOnnistuiko->setGeometry(QRect(90, 240, 441, 111));
+        QFont font;
+        font.setPointSize(18);
+        labelOnnistuiko->setFont(font);
         btnLopeta = new QPushButton(NostoOnnistui);
         btnLopeta->setObjectName(QString::fromUtf8("btnLopeta"));
         btnLopeta->setGeometry(QRect(170, 370, 251, 71));
-        QFont font;
-        font.setPointSize(18);
         btnLopeta->setFont(font);
 
         retranslateUi(NostoOnnistui);

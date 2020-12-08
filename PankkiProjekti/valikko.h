@@ -14,6 +14,8 @@ class Valikko : public QWidget
 public:
     explicit Valikko(QWidget *parent = nullptr);
     ~Valikko();
+    QString getTunnistautuminen() const;
+    void setTunnistautuminen(const QString &value);
 
 private slots:
     void on_btnNosta_clicked();
@@ -26,6 +28,7 @@ private slots:
 
 private:
     Ui::Valikko *ui;
+    QString Tunnistautuminen;
 };
 
 #endif // VALIKKO_H

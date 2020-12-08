@@ -1,11 +1,12 @@
 #include "nostoonnistui.h"
 #include "ui_nostoonnistui.h"
 
-NostoOnnistui::NostoOnnistui(QWidget *parent) :
+NostoOnnistui::NostoOnnistui(QString summa, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::NostoOnnistui)
 {
     ui->setupUi(this);
+    ui->labelOnnistuiko->setText(summa);
 }
 
 NostoOnnistui::~NostoOnnistui()
