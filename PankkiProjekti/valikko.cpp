@@ -16,6 +16,17 @@ Valikko::~Valikko()
     delete ui;
 }
 
+
+QString Valikko::getTunnistautuminen() const
+{
+    return Tunnistautuminen;
+}
+
+void Valikko::setTunnistautuminen(const QString &value)
+{
+    Tunnistautuminen=value;
+}
+
 void Valikko::on_btnNosta_clicked()
 {
     hide();
@@ -25,6 +36,7 @@ void Valikko::on_btnNosta_clicked()
 
 void Valikko::on_btnSaldo_clicked()
 {
+    QString id=getTunnistautuminen();
     hide();
     Saldo *sa = new Saldo();
     sa->show();

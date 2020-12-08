@@ -28,11 +28,8 @@ void MainWindow::on_btnKirjaudu_clicked()
         QString idKortti,PIN;
         idKortti=ui->lineEditId->text();
         PIN=ui->lineEditPin->text();
-        //void QAbstractOAuth::prepareRequest(QNetworkRequest *request, const QByteArray &verb, const QByteArray &body = QByteArray())//
         QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/login/index_post/?idKortti="+idKortti+"&PIN="+PIN));
             request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        //QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/login?idKortti="+loginUsername+"&PIN="+loginPassword));
-            //request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
             //Authenticate
             QString username="admin";
             QString password="1234";
@@ -57,6 +54,7 @@ void MainWindow::on_btnKirjaudu_clicked()
                 ui->labelLoginTest->setText("Right");
                 hide();
                 Valikko *va = new Valikko();
+                   va->setTunnistautuminen(idKortti);
                 va->show();
 
             }

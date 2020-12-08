@@ -12,7 +12,7 @@ class NostoOnnistui : public QWidget
     Q_OBJECT
 
 public:
-    explicit NostoOnnistui(QWidget *parent = nullptr);
+    explicit NostoOnnistui(QString name, QWidget *parent = nullptr);
     ~NostoOnnistui();
 
 private slots:

@@ -18,7 +18,7 @@ MuuSumma::~MuuSumma()
 void MuuSumma::on_btnNostaMuu_clicked()
 {
     hide();
-    NostoOnnistui *nosto = new NostoOnnistui();
+    NostoOnnistui *nosto = new NostoOnnistui("Nostettu pyytämäsi summa");
     nosto->show();
 }
 
