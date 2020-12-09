@@ -17,10 +17,10 @@
    <widget class="QPushButton" name="btnKirjaudu">
     <property name="geometry">
      <rect>
-      <x>232</x>
-      <y>310</y>
-      <width>191</width>
-      <height>51</height>
+      <x>190</x>
+      <y>340</y>
+      <width>241</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
@@ -35,10 +35,10 @@
    <widget class="QLabel" name="labelId">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>180</x>
       <y>180</y>
-      <width>91</width>
-      <height>31</height>
+      <width>41</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -47,16 +47,16 @@
      </font>
     </property>
     <property name="text">
-     <string>Id</string>
+     <string>Id:</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelPin">
     <property name="geometry">
      <rect>
-      <x>154</x>
-      <y>250</y>
-      <width>101</width>
-      <height>31</height>
+      <x>170</x>
+      <y>260</y>
+      <width>51</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -65,27 +65,37 @@
      </font>
     </property>
     <property name="text">
-     <string>Pin</string>
+     <string>Pin:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditId">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>220</x>
       <y>180</y>
-      <width>161</width>
-      <height>41</height>
+      <width>181</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditPin">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>240</y>
-      <width>161</width>
-      <height>31</height>
+      <x>220</x>
+      <y>260</y>
+      <width>181</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="labelLoginTest">
@@ -113,7 +123,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -33,20 +33,21 @@ public:
         MuuSumma->resize(600, 600);
         lineEditMuuSumma = new QLineEdit(MuuSumma);
         lineEditMuuSumma->setObjectName(QString::fromUtf8("lineEditMuuSumma"));
-        lineEditMuuSumma->setGeometry(QRect(240, 210, 171, 41));
-        labelMuuSumma = new QLabel(MuuSumma);
-        labelMuuSumma->setObjectName(QString::fromUtf8("labelMuuSumma"));
-        labelMuuSumma->setGeometry(QRect(60, 200, 171, 61));
+        lineEditMuuSumma->setGeometry(QRect(210, 250, 181, 61));
         QFont font;
         font.setPointSize(18);
+        lineEditMuuSumma->setFont(font);
+        labelMuuSumma = new QLabel(MuuSumma);
+        labelMuuSumma->setObjectName(QString::fromUtf8("labelMuuSumma"));
+        labelMuuSumma->setGeometry(QRect(50, 250, 161, 61));
         labelMuuSumma->setFont(font);
         btnNostaMuu = new QPushButton(MuuSumma);
         btnNostaMuu->setObjectName(QString::fromUtf8("btnNostaMuu"));
-        btnNostaMuu->setGeometry(QRect(250, 260, 131, 51));
+        btnNostaMuu->setGeometry(QRect(180, 330, 241, 91));
         btnNostaMuu->setFont(font);
         btnPeruuta = new QPushButton(MuuSumma);
         btnPeruuta->setObjectName(QString::fromUtf8("btnPeruuta"));
-        btnPeruuta->setGeometry(QRect(250, 320, 121, 51));
+        btnPeruuta->setGeometry(QRect(10, 530, 161, 61));
         btnPeruuta->setFont(font);
 
         retranslateUi(MuuSumma);
@@ -57,7 +58,7 @@ public:
     void retranslateUi(QWidget *MuuSumma)
     {
         MuuSumma->setWindowTitle(QCoreApplication::translate("MuuSumma", "Form", nullptr));
-        labelMuuSumma->setText(QCoreApplication::translate("MuuSumma", "Muu summa:", nullptr));
+        labelMuuSumma->setText(QCoreApplication::translate("MuuSumma", "Sy\303\266t\303\244 summa:", nullptr));
         btnNostaMuu->setText(QCoreApplication::translate("MuuSumma", "Nosta", nullptr));
         btnPeruuta->setText(QCoreApplication::translate("MuuSumma", "Peruuta", nullptr));
     } // retranslateUi

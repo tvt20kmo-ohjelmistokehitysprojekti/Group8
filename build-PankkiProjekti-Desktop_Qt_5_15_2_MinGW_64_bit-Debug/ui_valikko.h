@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -23,6 +24,8 @@ public:
     QPushButton *btnSaldo;
     QPushButton *btnTilitapahtumat;
     QPushButton *btnPeruuta;
+    QLabel *labelNaytaSaldo;
+    QLabel *labelTilitapahtumat;
 
     void setupUi(QWidget *Valikko)
     {
@@ -31,22 +34,29 @@ public:
         Valikko->resize(600, 600);
         btnNosta = new QPushButton(Valikko);
         btnNosta->setObjectName(QString::fromUtf8("btnNosta"));
-        btnNosta->setGeometry(QRect(170, 100, 241, 91));
+        btnNosta->setGeometry(QRect(10, 120, 241, 91));
         QFont font;
         font.setPointSize(18);
         btnNosta->setFont(font);
         btnSaldo = new QPushButton(Valikko);
         btnSaldo->setObjectName(QString::fromUtf8("btnSaldo"));
-        btnSaldo->setGeometry(QRect(170, 210, 231, 81));
+        btnSaldo->setGeometry(QRect(10, 230, 241, 91));
         btnSaldo->setFont(font);
         btnTilitapahtumat = new QPushButton(Valikko);
         btnTilitapahtumat->setObjectName(QString::fromUtf8("btnTilitapahtumat"));
-        btnTilitapahtumat->setGeometry(QRect(170, 310, 231, 91));
+        btnTilitapahtumat->setGeometry(QRect(10, 340, 241, 91));
         btnTilitapahtumat->setFont(font);
         btnPeruuta = new QPushButton(Valikko);
         btnPeruuta->setObjectName(QString::fromUtf8("btnPeruuta"));
-        btnPeruuta->setGeometry(QRect(200, 450, 161, 61));
+        btnPeruuta->setGeometry(QRect(10, 530, 161, 61));
         btnPeruuta->setFont(font);
+        labelNaytaSaldo = new QLabel(Valikko);
+        labelNaytaSaldo->setObjectName(QString::fromUtf8("labelNaytaSaldo"));
+        labelNaytaSaldo->setGeometry(QRect(300, 230, 291, 91));
+        labelNaytaSaldo->setFont(font);
+        labelTilitapahtumat = new QLabel(Valikko);
+        labelTilitapahtumat->setObjectName(QString::fromUtf8("labelTilitapahtumat"));
+        labelTilitapahtumat->setGeometry(QRect(300, 120, 291, 311));
 
         retranslateUi(Valikko);
 
@@ -60,6 +70,8 @@ public:
         btnSaldo->setText(QCoreApplication::translate("Valikko", "Saldo", nullptr));
         btnTilitapahtumat->setText(QCoreApplication::translate("Valikko", "Tilitapahtumat", nullptr));
         btnPeruuta->setText(QCoreApplication::translate("Valikko", "Peruuta", nullptr));
+        labelNaytaSaldo->setText(QString());
+        labelTilitapahtumat->setText(QString());
     } // retranslateUi
 
 };
