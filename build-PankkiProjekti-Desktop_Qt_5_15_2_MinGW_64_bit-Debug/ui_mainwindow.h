@@ -43,24 +43,26 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         btnKirjaudu = new QPushButton(centralwidget);
         btnKirjaudu->setObjectName(QString::fromUtf8("btnKirjaudu"));
-        btnKirjaudu->setGeometry(QRect(232, 310, 191, 51));
+        btnKirjaudu->setGeometry(QRect(190, 340, 241, 91));
         QFont font;
         font.setPointSize(18);
         btnKirjaudu->setFont(font);
         labelId = new QLabel(centralwidget);
         labelId->setObjectName(QString::fromUtf8("labelId"));
-        labelId->setGeometry(QRect(170, 180, 91, 31));
+        labelId->setGeometry(QRect(180, 180, 41, 61));
         labelId->setFont(font);
         labelPin = new QLabel(centralwidget);
         labelPin->setObjectName(QString::fromUtf8("labelPin"));
-        labelPin->setGeometry(QRect(154, 250, 101, 31));
+        labelPin->setGeometry(QRect(170, 260, 51, 61));
         labelPin->setFont(font);
         lineEditId = new QLineEdit(centralwidget);
         lineEditId->setObjectName(QString::fromUtf8("lineEditId"));
-        lineEditId->setGeometry(QRect(270, 180, 161, 41));
+        lineEditId->setGeometry(QRect(220, 180, 181, 61));
+        lineEditId->setFont(font);
         lineEditPin = new QLineEdit(centralwidget);
         lineEditPin->setObjectName(QString::fromUtf8("lineEditPin"));
-        lineEditPin->setGeometry(QRect(270, 240, 161, 31));
+        lineEditPin->setGeometry(QRect(220, 260, 181, 61));
+        lineEditPin->setFont(font);
         labelLoginTest = new QLabel(centralwidget);
         labelLoginTest->setObjectName(QString::fromUtf8("labelLoginTest"));
         labelLoginTest->setGeometry(QRect(80, 110, 411, 51));
@@ -68,7 +70,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 600, 26));
+        menubar->setGeometry(QRect(0, 0, 600, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -83,8 +85,8 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         btnKirjaudu->setText(QCoreApplication::translate("MainWindow", "Kirjaudu", nullptr));
-        labelId->setText(QCoreApplication::translate("MainWindow", "Id", nullptr));
-        labelPin->setText(QCoreApplication::translate("MainWindow", "Pin", nullptr));
+        labelId->setText(QCoreApplication::translate("MainWindow", "Id:", nullptr));
+        labelPin->setText(QCoreApplication::translate("MainWindow", "Pin:", nullptr));
         labelLoginTest->setText(QString());
     } // retranslateUi
 
