@@ -14,6 +14,8 @@ class Nosta : public QWidget
 public:
     explicit Nosta(QWidget *parent = nullptr);
     ~Nosta();
+    QString getTunnistautuminen() const;
+    void setTunnistautuminen(const QString &value);
 
 private slots:
     void on_btn20_clicked();
@@ -30,6 +32,7 @@ private slots:
 
 private:
     Ui::Nosta *ui;
+     QString Tunnistautuminen;
 };
 
 #endif // NOSTA_H
