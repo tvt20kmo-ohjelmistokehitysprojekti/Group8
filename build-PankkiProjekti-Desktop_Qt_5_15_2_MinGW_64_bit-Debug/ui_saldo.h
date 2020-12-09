@@ -24,6 +24,7 @@ public:
     QPushButton *btnPeruutaSaldo;
     QLineEdit *lineEditSaldo;
     QLabel *labelSaldo;
+    QLabel *labelNaytaSaldo;
 
     void setupUi(QWidget *Saldo)
     {
@@ -32,17 +33,21 @@ public:
         Saldo->resize(600, 600);
         btnPeruutaSaldo = new QPushButton(Saldo);
         btnPeruutaSaldo->setObjectName(QString::fromUtf8("btnPeruutaSaldo"));
-        btnPeruutaSaldo->setGeometry(QRect(342, 387, 191, 71));
+        btnPeruutaSaldo->setGeometry(QRect(220, 360, 191, 71));
         QFont font;
         font.setPointSize(18);
         btnPeruutaSaldo->setFont(font);
         lineEditSaldo = new QLineEdit(Saldo);
         lineEditSaldo->setObjectName(QString::fromUtf8("lineEditSaldo"));
-        lineEditSaldo->setGeometry(QRect(200, 180, 301, 81));
+        lineEditSaldo->setGeometry(QRect(250, 300, 131, 51));
         labelSaldo = new QLabel(Saldo);
         labelSaldo->setObjectName(QString::fromUtf8("labelSaldo"));
         labelSaldo->setGeometry(QRect(60, 190, 81, 51));
         labelSaldo->setFont(font);
+        labelNaytaSaldo = new QLabel(Saldo);
+        labelNaytaSaldo->setObjectName(QString::fromUtf8("labelNaytaSaldo"));
+        labelNaytaSaldo->setGeometry(QRect(170, 130, 371, 121));
+        labelNaytaSaldo->setFont(font);
 
         retranslateUi(Saldo);
 
@@ -54,6 +59,7 @@ public:
         Saldo->setWindowTitle(QCoreApplication::translate("Saldo", "Form", nullptr));
         btnPeruutaSaldo->setText(QCoreApplication::translate("Saldo", "Peruuta", nullptr));
         labelSaldo->setText(QCoreApplication::translate("Saldo", "Saldo:", nullptr));
+        labelNaytaSaldo->setText(QString());
     } // retranslateUi
 
 };

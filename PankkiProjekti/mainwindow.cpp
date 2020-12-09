@@ -28,6 +28,7 @@ void MainWindow::on_btnKirjaudu_clicked()
         QString idKortti,PIN;
         idKortti=ui->lineEditId->text();
         PIN=ui->lineEditPin->text();
+                                  //QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit?idDebit="+idDebit));
         QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/login/index_post/?idKortti="+idKortti+"&PIN="+PIN));
             request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
             //Authenticate
