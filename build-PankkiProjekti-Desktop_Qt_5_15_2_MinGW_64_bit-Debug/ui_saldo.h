@@ -46,7 +46,7 @@ public:
         labelSaldo->setFont(font);
         labelNaytaSaldo = new QLabel(Saldo);
         labelNaytaSaldo->setObjectName(QString::fromUtf8("labelNaytaSaldo"));
-        labelNaytaSaldo->setGeometry(QRect(170, 130, 371, 121));
+        labelNaytaSaldo->setGeometry(QRect(170, 140, 371, 121));
         labelNaytaSaldo->setFont(font);
 
         retranslateUi(Saldo);

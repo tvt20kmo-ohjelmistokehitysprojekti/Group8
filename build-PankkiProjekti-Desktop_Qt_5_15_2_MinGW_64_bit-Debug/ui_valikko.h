@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -23,6 +24,7 @@ public:
     QPushButton *btnSaldo;
     QPushButton *btnTilitapahtumat;
     QPushButton *btnPeruuta;
+    QLabel *labelNaytaSaldo;
 
     void setupUi(QWidget *Valikko)
     {
@@ -47,6 +49,10 @@ public:
         btnPeruuta->setObjectName(QString::fromUtf8("btnPeruuta"));
         btnPeruuta->setGeometry(QRect(200, 450, 161, 61));
         btnPeruuta->setFont(font);
+        labelNaytaSaldo = new QLabel(Valikko);
+        labelNaytaSaldo->setObjectName(QString::fromUtf8("labelNaytaSaldo"));
+        labelNaytaSaldo->setGeometry(QRect(114, 50, 341, 41));
+        labelNaytaSaldo->setFont(font);
 
         retranslateUi(Valikko);
 
@@ -60,6 +66,7 @@ public:
         btnSaldo->setText(QCoreApplication::translate("Valikko", "Saldo", nullptr));
         btnTilitapahtumat->setText(QCoreApplication::translate("Valikko", "Tilitapahtumat", nullptr));
         btnPeruuta->setText(QCoreApplication::translate("Valikko", "Peruuta", nullptr));
+        labelNaytaSaldo->setText(QString());
     } // retranslateUi
 
 };

@@ -41,7 +41,7 @@ request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         {
             QJsonObject jsob = value.toObject();
             log+=jsob["Saldo"].toString()+" €";
-           // reply->deleteLater();
+            reply->deleteLater();
         }
         ui->lineEditSaldo->setText(log);
         ui->labelNaytaSaldo->setText(log);

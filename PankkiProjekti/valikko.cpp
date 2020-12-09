@@ -3,6 +3,10 @@
 #include "nosta.h"
 #include "saldo.h"
 #include "tilitapahtumat.h"
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+#include <qjsondocument.h>
 
 Valikko::Valikko(QWidget *parent) :
     QWidget(parent),
@@ -37,9 +41,32 @@ void Valikko::on_btnNosta_clicked()
 void Valikko::on_btnSaldo_clicked()
 {
     QString id=getTunnistautuminen();
-    hide();
-    Saldo *sa = new Saldo();
-    sa->show();
+QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit?idDebit="+id));
+request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+            QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+            QString headerData = "Basic " + data;
+            request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.get(request);
+        while (!reply->isFinished() )
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+        QJsonArray jsarr = json_doc.array();
+        QString log;
+        foreach (const QJsonValue &value, jsarr)
+        {
+            QJsonObject jsob = value.toObject();
+            log+=jsob["Saldo"].toString()+","+jsob["idDebit"].toString()+" €";
+            //reply->deleteLater();
+        }
+        ui->labelNaytaSaldo->setText(log);
+
 }
 
 void Valikko::on_btnTilitapahtumat_clicked()
