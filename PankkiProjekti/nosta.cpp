@@ -44,8 +44,8 @@ void Nosta::on_btn20_clicked()
     json.insert("idDebit",id);
     json.insert("Saldo",Saldo);
     QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
-    while (!reply->isFinished())
+    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
+    while (!reply->isFinished() )
     {
         qApp->processEvents();
     }
@@ -68,11 +68,12 @@ void Nosta::on_btn20_clicked()
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QJsonObject json;
-    json.insert("idDebit",id);
-    json.insert("amount",summa);
+    json.insert("id",id);
+    // if
+    json.insert("Saldo",summa); // tänne joku if tarkistamaan että summa => saldo tai tuohon alemmas
     QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
-    while (!reply->isFinished())
+    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
+    while (!reply->isFinished() )
     {
         qApp->processEvents();
     }
