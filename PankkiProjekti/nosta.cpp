@@ -10,9 +10,11 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/qnetworkaccessmanager.h>
 #include <QtNetwork/qnetworkreply.h>
+#include <QHttpPart>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <qjsondocument.h>
+#include <QUrlQuery>
 
 Nosta::Nosta(QWidget *parent) :
     QWidget(parent),
@@ -25,59 +27,88 @@ Nosta::~Nosta()
 {
     delete ui;
 }
-
+/*
 void Nosta::on_btn20_clicked()
 {
     QString id, summa;
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
+    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
+    QByteArray data;
+    QUrl params;
+    params.addQueryItem("userid","user");
+    params.addQueryItem("apiKey","key");
+    data.append(params.toString());
+    data.remove(0,1);
+    QNetworkReply *reply = nwam.post(request,data);
+    return reply;
+
+}*/
+
+void Nosta::on_btn20_clicked()
+/*{
+
+    QString id, summa;
     id=getTunnistautuminen();
     summa="20";
-    /*QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_post/?id="+id+"&summa="+summa) );
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QString username="admin";
-    QString password="1234";
-    QString concatenatedCredentials = username + ":" + password;
-    QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.get(request);
-    while (!reply->isFinished() )*/
+    QNetworkAccessManager * manager = new QNetworkAccessManager(this);
+
+    QUrl url("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/");
+    QNetworkRequest request(url);
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    QUrlQuery params;
+    params.addQueryItem("id", "id");
+    params.addQueryItem("summa", "summa");
+
+    connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
+
+    manager->post(request, params.query().toUtf8());
+
+}*/
+{
+    QString js="{\"attr\":\"value\"}";
+    QString id, summa;
+    id=getTunnistautuminen();
+    summa="20";
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
     QString username="admin";
     QString password="1234";
     QString concatenatedCredentials = username + ":" + password;
     QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+    //QByteArray postData=js.toUtf8();
+    //QUrl serviceUrl = new QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/");
+    //QNetworkRequest request(serviceUrl);
+    //request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
+    //networkManager->post(request,postData)
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QJsonObject json;
     json.insert("id",id);
     json.insert("summa",summa);
     QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
+    QNetworkReply *reply = nam.post(request, QJsonDocument(json).toJson() );
     while (!reply->isFinished() )
     {
         qApp->processEvents();
     }
-    /*QByteArray response_data = reply->readAll();
-    qDebug()<<"DATA:"+response_data;
-    reply->deleteLater();
-    if(response_data=="true")*/
     QByteArray response_data = reply->readAll();
     qDebug()<<response_data;
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("          20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
         nosto->show();
     }
     else
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui. Tiliä ei veloitettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
         nosto->show();
     }
 }
+
 
 void Nosta::on_btn40_clicked()
 {
