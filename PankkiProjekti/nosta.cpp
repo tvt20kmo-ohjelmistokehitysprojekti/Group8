@@ -31,7 +31,7 @@ void Nosta::on_btn20_clicked()
     QString id, nostaa;
     id=getTunnistautuminen();
     nostaa="20";
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_put?id="+id) );
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_post?id") );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QString username="admin";
     QString password="1234";
@@ -53,7 +53,7 @@ void Nosta::on_btn20_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("          20€ Nostettu.");
         nosto->show();
     }
     else
