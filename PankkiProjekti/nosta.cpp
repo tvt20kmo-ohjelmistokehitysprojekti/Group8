@@ -59,7 +59,7 @@ void Nosta::on_btn20_clicked()
     else
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui. Tiliä ei veloitettu.");
         nosto->show();
     }
 }
