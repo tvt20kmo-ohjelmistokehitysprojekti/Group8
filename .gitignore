@@ -4,5 +4,4 @@ vendor
 ./application/config/database.php
 ./application/config/config.php
 build*/
-*.o
 *.exe
