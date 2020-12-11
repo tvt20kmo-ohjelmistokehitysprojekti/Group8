@@ -21,7 +21,7 @@ class Nosto extends REST_Controller {
     {
         $id=$this->put('id');
         $summa=$this->put('summa');
-        $result=$this->Nosto_model->debit_nosto($id, $summa);
+        $result=$this->Nosto_model->debitNosto($id, $summa);
 
         if($result)
         {

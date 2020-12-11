@@ -3,3 +3,5 @@ vendor
 .idea
 ./application/config/database.php
 ./application/config/config.php
+build*/
+*.exe
