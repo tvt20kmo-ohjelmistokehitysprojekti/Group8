@@ -26,3 +26,4 @@ void NostoOnnistui::on_btnPeruuta_clicked()
     Nosta *no = new Nosta();
     no->show();
 }
+

@@ -17,17 +17,17 @@ class Nosto extends REST_Controller {
         $this->load->model('Nosto_model');
     }
 
-    public function index_put()
+    public function index_post()
     {
-        $id=$this->put('id');
-        $summa=$this->put('summa');
+        $id=$this->post('id');
+        $summa=$this->post('summa');
         $result=$this->Nosto_model->debitNosto($id, $summa);
 
         if($result)
         {
           $message = [
-              'Withdraw from card' => $this->put('id'),
-              'summa' => $this->put('summa'),
+              'Withdraw from card' => $this->post('id'),
+              'summa' => $this->post('summa'),
               'message' => 'Withdrawal completed'
           ];
 

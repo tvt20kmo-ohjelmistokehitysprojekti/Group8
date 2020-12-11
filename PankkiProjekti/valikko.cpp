@@ -13,6 +13,7 @@ Valikko::Valikko(QWidget *parent) :
     ui(new Ui::Valikko)
 {
     ui->setupUi(this);
+    ui->labelNaytaSaldo->setText("");
 }
 
 Valikko::~Valikko()
@@ -92,6 +93,7 @@ void Valikko::on_btnTilitapahtumat_clicked()
         QJsonObject jsob = value.toObject();
         tapahtumat+=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
     }
+    ui->labelNaytaSaldo->setText("");
     ui->labelTilitapahtumat->setText(tapahtumat);
 }
 
