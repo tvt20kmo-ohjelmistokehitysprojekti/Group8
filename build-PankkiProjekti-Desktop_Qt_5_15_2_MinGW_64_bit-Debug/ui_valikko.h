@@ -57,6 +57,7 @@ public:
         labelTilitapahtumat = new QLabel(Valikko);
         labelTilitapahtumat->setObjectName(QString::fromUtf8("labelTilitapahtumat"));
         labelTilitapahtumat->setGeometry(QRect(300, 120, 291, 311));
+        labelTilitapahtumat->setFont(font);
 
         retranslateUi(Valikko);
 
@@ -69,7 +70,7 @@ public:
         btnNosta->setText(QCoreApplication::translate("Valikko", "Nosta", nullptr));
         btnSaldo->setText(QCoreApplication::translate("Valikko", "Saldo", nullptr));
         btnTilitapahtumat->setText(QCoreApplication::translate("Valikko", "Tilitapahtumat", nullptr));
-        btnPeruuta->setText(QCoreApplication::translate("Valikko", "Peruuta", nullptr));
+        btnPeruuta->setText(QCoreApplication::translate("Valikko", "Lopeta", nullptr));
         labelNaytaSaldo->setText(QString());
         labelTilitapahtumat->setText(QString());
     } // retranslateUi

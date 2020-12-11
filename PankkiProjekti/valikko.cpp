@@ -40,7 +40,7 @@ void Valikko::on_btnNosta_clicked()
 void Valikko::on_btnSaldo_clicked()
 {
     QString id=getTunnistautuminen();
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit/index_get/?id="+id));
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit/index_get/?id="+id) );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QString username="admin";
     QString password="1234";
@@ -90,12 +90,12 @@ void Valikko::on_btnTilitapahtumat_clicked()
     foreach (const QJsonValue &value, jsarr)
     {
         QJsonObject jsob = value.toObject();
-        tapahtumat+=jsob["Pvm"].toString()+", "+jsob["idTilitapahtumat"].toString()+" "+jsob["idKortti"].toString()+" €"+"\r";
+        tapahtumat+=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
     }
     ui->labelTilitapahtumat->setText(tapahtumat);
 }
 
 void Valikko::on_btnPeruuta_clicked()
 {
-    hide(); //TÄHÄN VOI VIELÄ JOS HALUAA ETTÄ SIIRTYISI TAKAISIN KIRJAUTUMISEEN
+    QApplication::quit();
 }

@@ -73,7 +73,7 @@ public:
         btn50->setText(QCoreApplication::translate("Nosta", "50\342\202\254", nullptr));
         btn100->setText(QCoreApplication::translate("Nosta", "100\342\202\254", nullptr));
         btnMuu->setText(QCoreApplication::translate("Nosta", "Muu summa", nullptr));
-        btnPeruuta->setText(QCoreApplication::translate("Nosta", "Peruuta", nullptr));
+        btnPeruuta->setText(QCoreApplication::translate("Nosta", "Takaisin", nullptr));
     } // retranslateUi
 
 };

@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btnLopeta_clicked();
 
+    void on_btnPeruuta_clicked();
+
 private:
     Ui::NostoOnnistui *ui;
 };

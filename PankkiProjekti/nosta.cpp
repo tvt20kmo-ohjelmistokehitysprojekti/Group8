@@ -28,38 +28,10 @@ Nosta::~Nosta()
 
 void Nosta::on_btn20_clicked()
 {
-    /*
-    QString id, Saldo;
+    QString id, nostaa;
     id=getTunnistautuminen();
-    Saldo="-20";
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit/index_put/?id="+id) );
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QString username="admin";
-    QString password="1234";
-    QString concatenatedCredentials = username + ":" + password;
-    QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    QJsonObject json;
-    json.insert("idDebit",id);
-    json.insert("Saldo",Saldo);
-    QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
-    while (!reply->isFinished() )
-    {
-        qApp->processEvents();
-    }
-    QByteArray response_data = reply->readAll();
-    qDebug()<<response_data;
-    hide();
-    NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
-    nosto->show();
-    */
-
-    QString id, summa;
-    id=getTunnistautuminen();
-    summa="20";
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/debit/index_put/") );
+    nostaa="20";
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_put?id="+id) );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QString username="admin";
     QString password="1234";
@@ -69,8 +41,7 @@ void Nosta::on_btn20_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QJsonObject json;
     json.insert("id",id);
-    // if
-    json.insert("Saldo",summa); // tänne joku if tarkistamaan että summa => saldo tai tuohon alemmas
+    json.insert("summa",nostaa);
     QNetworkAccessManager nam;
     QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
     while (!reply->isFinished() )
@@ -79,17 +50,16 @@ void Nosta::on_btn20_clicked()
     }
     QByteArray response_data = reply->readAll();
     qDebug()<<response_data;
-    // tämä loppu on vasta arvausta :)
-    if(response_data=="false")
+    if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
         nosto->show();
     }
     else
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
         nosto->show();
     }
 }
