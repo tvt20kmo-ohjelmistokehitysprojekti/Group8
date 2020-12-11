@@ -28,10 +28,21 @@ Nosta::~Nosta()
 
 void Nosta::on_btn20_clicked()
 {
-    QString id, nostaa;
+    QString id, summa;
     id=getTunnistautuminen();
-    nostaa="20";
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_post?id") );
+    summa="20";
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_post/?id="+id+"&summa="+summa) );
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QString username="admin";
+    QString password="1234";
+    QString concatenatedCredentials = username + ":" + password;
+    QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+    QString headerData = "Basic " + data;
+    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished() )
+    /*QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/index_post/?id="+id+"&summa="+summa) );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QString username="admin";
     QString password="1234";
@@ -41,16 +52,20 @@ void Nosta::on_btn20_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QJsonObject json;
     json.insert("id",id);
-    json.insert("summa",nostaa);
+    json.insert("summa",summa);
     QNetworkAccessManager nam;
     QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson() );
-    while (!reply->isFinished() )
+    while (!reply->isFinished() )*/
     {
         qApp->processEvents();
     }
     QByteArray response_data = reply->readAll();
-    qDebug()<<response_data;
+    qDebug()<<"DATA:"+response_data;
+    reply->deleteLater();
     if(response_data=="true")
+    /*QByteArray response_data = reply->readAll();
+    qDebug()<<response_data;
+    if(response_data=="true")*/
     {
         hide();
         NostoOnnistui *nosto = new NostoOnnistui("          20€ Nostettu.");
