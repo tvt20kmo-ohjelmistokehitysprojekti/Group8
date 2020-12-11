@@ -16,5 +16,5 @@ NostoOnnistui::~NostoOnnistui()
 
 void NostoOnnistui::on_btnLopeta_clicked()
 {
-    hide();
+    QApplication::quit();
 }
