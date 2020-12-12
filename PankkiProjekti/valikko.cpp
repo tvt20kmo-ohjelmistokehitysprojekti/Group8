@@ -19,6 +19,7 @@ Valikko::Valikko(QWidget *parent) :
 Valikko::~Valikko()
 {
     delete ui;
+    //ui->textEditTapahtumat(hide);
 }
 
 QString Valikko::getTunnistautuminen() const
@@ -64,9 +65,9 @@ void Valikko::on_btnSaldo_clicked()
     foreach (const QJsonValue &value, jsarr)
     {
         QJsonObject jsob = value.toObject();
-        saldo+=jsob["Saldo"].toString()+"€";
+        saldo=+"Saldo: "+jsob["Saldo"].toString()+"€";
     }
-    ui->labelNaytaSaldo->setText(saldo);
+    ui->textEditTapahtumat->setText(saldo);
 }
 
 void Valikko::on_btnTilitapahtumat_clicked()
@@ -95,8 +96,8 @@ void Valikko::on_btnTilitapahtumat_clicked()
         QJsonObject jsob = value.toObject();
         tapahtumat+=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
     }
-    ui->labelNaytaSaldo->setText("");
-    ui->labelTilitapahtumat->setText(tapahtumat);
+    ui->textEditTapahtumat->setText("");
+    ui->textEditTapahtumat->setText(tapahtumat);
 }
 
 void Valikko::on_btnPeruuta_clicked()
