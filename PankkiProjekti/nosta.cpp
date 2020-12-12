@@ -39,79 +39,8 @@ QString Nosta::getTunnistautuminen2() const
     return Tunnistautuminen2;
 }
 
-/*
 void Nosta::on_btn20_clicked()
 {
-    QString id, summa;
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/nosto/?id="+id+"&?summa="summa) );
-    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-    QByteArray data;
-    QUrl params;
-    params.addQueryItem("userid","user");
-    params.addQueryItem("apiKey","key");
-    data.append(params.toString());
-    data.remove(0,1);
-    QNetworkReply *reply = nwam.post(request,data);
-    return reply;
-
-}*/
-
-void Nosta::on_btn20_clicked()/*
-{
-    QString id, summa;
-    id=getTunnistautuminen();
-    summa="20";
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-
-    QUrl url("https://accounts.google.com/o/oauth2/token");
-    QNetworkRequest request(url);
-
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
-    QUrl params;
-    QUrlQuery paramsQuery;
-    paramsQuery.addQueryItem("summa", summa);
-    // and so on..
-
-    params.setQuery(paramsQuery);
-
-    QObject::connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
-
-    manager->post(request, params.encodedQuery());
-{
-    QString client = new RestClient("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto");
-          client.Timeout = -1;
-          var request = new RestRequest(Method.POST);
-          request.AddHeader("Authorization", "Basic YWRtaW46MTIzNA==");
-          request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-          request.AddParameter("id", "4");
-          request.AddParameter("summa", "20");
-          IRestResponse response = client.Execute(request);
-          Console.WriteLine(response.Content);
-}
-{
-
-    QString id, summa;
-    id=getTunnistautuminen();
-    summa="20";
-    QNetworkAccessManager * manager = new QNetworkAccessManager(this);
-
-    QUrl url("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/");
-    QNetworkRequest request(url);
-
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
-    QUrlQuery params;
-    params.addQueryItem("id", "id");
-    params.addQueryItem("summa", "summa");
-
-    connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
-
-    manager->post(request, params.query().toUtf8());
-
-}*/
-{
-    //QString js="{\"attr\":\"value\"}";
     QString id, summa;
     id=getTunnistautuminen2();
     summa="20";
@@ -121,11 +50,6 @@ void Nosta::on_btn20_clicked()/*
     QString password="1234";
     QString concatenatedCredentials = username + ":" + password;
     QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
-    //QByteArray postData=js.toUtf8();
-    //QUrl serviceUrl = new QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/");
-    //QNetworkRequest request(serviceUrl);
-    //request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
-    //networkManager->post(request,postData)
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QUrlQuery paramsQuery;
@@ -155,7 +79,6 @@ void Nosta::on_btn20_clicked()/*
         nosto->show();
     }
 }
-
 
 void Nosta::on_btn40_clicked()
 {
