@@ -94,14 +94,13 @@ void Valikko::on_btnTilitapahtumat_clicked()
     QJsonArray jsarr = json_doc.array();
     QString tapahtumat;
     foreach (const QJsonValue &value, jsarr)
-    //for(int i=0;i<5;i++)
     {
         QJsonObject jsob = value.toObject();
         tapahtumat=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+"€"+"\r";
-        QTextEdit *myTextEdit = ui->textEditTapahtumat;
-        myTextEdit->insertPlainText ("Tilitapahtumat:\n");
-        myTextEdit->moveCursor (QTextCursor::End);
-        myTextEdit->insertPlainText ("      "+tapahtumat+"\n");
+        QTextEdit *te = ui->textEditTapahtumat;
+        te->insertPlainText ("Tilitapahtumat:\n");
+        te->moveCursor (QTextCursor::End);
+        te->insertPlainText ("      "+tapahtumat+"\n");
     }
 }
 
