@@ -187,7 +187,7 @@ void Nosta::on_btn40_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("40€ Nostettu.");
         nosto->show();
     }
     else
@@ -228,7 +228,7 @@ void Nosta::on_btn50_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("50€ Nostettu.");
         nosto->show();
     }
     else
@@ -269,7 +269,7 @@ void Nosta::on_btn100_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui("100€ Nostettu.");
         nosto->show();
     }
     else

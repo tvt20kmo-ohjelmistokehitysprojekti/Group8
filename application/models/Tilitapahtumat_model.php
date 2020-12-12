@@ -8,7 +8,7 @@ class Tilitapahtumat_model extends CI_model
     $this->db->select('*');
     $this->db->from('Tilitapahtumat');
     if($id !== NULL) {
-      $this->db->where('idTilitapahtumat',$id);
+      $this->db->where('kortti_idKortti',$id);
     }
     return $this->db->get()->result_array();
   }
