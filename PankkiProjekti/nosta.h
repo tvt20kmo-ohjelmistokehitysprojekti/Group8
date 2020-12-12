@@ -30,6 +30,8 @@ private slots:
 
     void on_btnPeruuta_clicked();
 
+    void on_btnLopeta_clicked();
+
 private:
     Ui::Nosta *ui;
     QString Tunnistautuminen2;

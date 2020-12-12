@@ -13,7 +13,6 @@ Valikko::Valikko(QWidget *parent) :
     ui(new Ui::Valikko)
 {
     ui->setupUi(this);
-    ui->labelNaytaSaldo->setText("");
 }
 
 Valikko::~Valikko()
@@ -65,9 +64,12 @@ void Valikko::on_btnSaldo_clicked()
     foreach (const QJsonValue &value, jsarr)
     {
         QJsonObject jsob = value.toObject();
-        saldo=+"Saldo: "+jsob["Saldo"].toString()+"€";
+        saldo=jsob["Saldo"].toString()+"€";
     }
-    ui->textEditTapahtumat->setText(saldo);
+    QTextEdit *myTextEdit = ui->textEditTapahtumat;
+    myTextEdit->insertPlainText ("Saldo:");
+    myTextEdit->moveCursor (QTextCursor::End);
+    myTextEdit->insertPlainText (saldo+"\n");
 }
 
 void Valikko::on_btnTilitapahtumat_clicked()
@@ -94,13 +96,15 @@ void Valikko::on_btnTilitapahtumat_clicked()
     foreach (const QJsonValue &value, jsarr)
     {
         QJsonObject jsob = value.toObject();
-        tapahtumat=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
+        tapahtumat=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+"€"+"\n";
     }
-    ui->textEditTapahtumat->setText("");
-    ui->textEditTapahtumat->setText(tapahtumat);
+    QTextEdit *myTextEdit = ui->textEditTapahtumat;
+    myTextEdit->insertPlainText ("Tilitapahtumat:");
+    myTextEdit->moveCursor (QTextCursor::End);
+    myTextEdit->insertPlainText (tapahtumat+"\n");
 }
 
-void Valikko::on_btnPeruuta_clicked()
+void Valikko::on_btnLopeta_clicked()
 {
     QApplication::quit();
 }
