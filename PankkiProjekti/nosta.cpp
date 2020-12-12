@@ -28,6 +28,17 @@ Nosta::~Nosta()
 {
     delete ui;
 }
+
+void Nosta::setTunnistautuminen2(const QString &value)
+{
+    Tunnistautuminen2=value;
+}
+
+QString Nosta::getTunnistautuminen2() const
+{
+    return Tunnistautuminen2;
+}
+
 /*
 void Nosta::on_btn20_clicked()
 {
@@ -100,9 +111,9 @@ void Nosta::on_btn20_clicked()/*
 
 }*/
 {
-    QString js="{\"attr\":\"value\"}";
+    //QString js="{\"attr\":\"value\"}";
     QString id, summa;
-    id="4";//getTunnistautuminen();
+    id=getTunnistautuminen2();
     summa="20";
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
@@ -118,11 +129,11 @@ void Nosta::on_btn20_clicked()/*
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     QUrlQuery paramsQuery;
-    paramsQuery.addQueryItem("id", id);
-    paramsQuery.addQueryItem("summa", summa);
+    paramsQuery.addQueryItem("id", id );
+    paramsQuery.addQueryItem("summa", summa );
     QJsonObject json;
-    json.insert("id",id);
-    json.insert("summa",summa);
+    json.insert("id", id );
+    json.insert("summa", summa );
     QNetworkAccessManager nam;
     QNetworkReply *reply = nam.post(request, QJsonDocument(json).toJson() );
     while (!reply->isFinished() )
@@ -181,12 +192,4 @@ void Nosta::on_btnPeruuta_clicked()
     va->show();
 }
 
-QString Nosta::getTunnistautuminen() const
-{
-    return Tunnistautuminen;
-}
 
-void Nosta::setTunnistautuminen(const QString &value)
-{
-    Tunnistautuminen=value;
-}

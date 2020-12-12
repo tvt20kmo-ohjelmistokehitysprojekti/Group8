@@ -33,8 +33,10 @@ void Valikko::setTunnistautuminen(const QString &value)
 
 void Valikko::on_btnNosta_clicked()
 {
+    QString id=getTunnistautuminen();
     hide();
     Nosta *no = new Nosta();
+    no->setTunnistautuminen2(id);
     no->show();
 }
 
