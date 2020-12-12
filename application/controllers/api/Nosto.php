@@ -25,11 +25,7 @@ class Nosto extends REST_Controller {
 
         if($result)
         {
-          $message = [
-              'Withdraw from card' => $this->post('id'),
-              'summa' => $this->post('summa'),
-              'message' => 'Withdrawal completed'
-          ];
+          $message = true;
 
             $this->set_response($message, REST_Controller::HTTP_CREATED); 
         }
