@@ -14,6 +14,9 @@ class MuuSumma : public QWidget
 public:
     explicit MuuSumma(QWidget *parent = nullptr);
     ~MuuSumma();
+    QString getTunnistautuminen3() const;
+    void setTunnistautuminen3(const QString &value);
+
 
 private slots:
     void on_btnNostaMuu_clicked();
@@ -22,6 +25,7 @@ private slots:
 
 private:
     Ui::MuuSumma *ui;
+    QString Tunnistautuminen3;
 };
 
 #endif // MUUSUMMA_H

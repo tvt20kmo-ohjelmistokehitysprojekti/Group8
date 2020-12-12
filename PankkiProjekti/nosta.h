@@ -32,7 +32,7 @@ private slots:
 
 private:
     Ui::Nosta *ui;
-     QString Tunnistautuminen2;
+    QString Tunnistautuminen2;
 };
 
 #endif // NOSTA_H
