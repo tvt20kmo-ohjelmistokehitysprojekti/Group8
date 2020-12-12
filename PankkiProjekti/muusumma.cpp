@@ -41,7 +41,7 @@ void MuuSumma::on_btnNostaMuu_clicked()
     QString id, summa;
     id=getTunnistautuminen3();
     summa=ui->lineEditMuuSumma->text();
-    int summa2 = ui->lineEditMuuSumma->text().toInt();
+    int summa2=ui->lineEditMuuSumma->text().toInt();
     if(summa2==20 || summa2==40 || (summa2>=50 && summa2 %10==0))
     {
         QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
