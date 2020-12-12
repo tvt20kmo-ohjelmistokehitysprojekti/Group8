@@ -121,6 +121,16 @@
     <string/>
    </property>
   </widget>
+  <widget class="QTextEdit" name="textEditTapahtumat">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>120</y>
+     <width>291</width>
+     <height>311</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
