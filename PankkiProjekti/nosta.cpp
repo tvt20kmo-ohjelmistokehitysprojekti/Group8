@@ -15,6 +15,7 @@
 #include <QJsonObject>
 #include <qjsondocument.h>
 #include <QUrlQuery>
+#include <QUrl>
 
 Nosta::Nosta(QWidget *parent) :
     QWidget(parent),
@@ -31,7 +32,7 @@ Nosta::~Nosta()
 void Nosta::on_btn20_clicked()
 {
     QString id, summa;
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/nosto/?id="+id+"&?summa="summa) );
     request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
     QByteArray data;
     QUrl params;
@@ -44,8 +45,40 @@ void Nosta::on_btn20_clicked()
 
 }*/
 
-void Nosta::on_btn20_clicked()
-/*{
+void Nosta::on_btn20_clicked()/*
+{
+    QString id, summa;
+    id=getTunnistautuminen();
+    summa="20";
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+
+    QUrl url("https://accounts.google.com/o/oauth2/token");
+    QNetworkRequest request(url);
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    QUrl params;
+    QUrlQuery paramsQuery;
+    paramsQuery.addQueryItem("summa", summa);
+    // and so on..
+
+    params.setQuery(paramsQuery);
+
+    QObject::connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
+
+    manager->post(request, params.encodedQuery());
+{
+    QString client = new RestClient("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto");
+          client.Timeout = -1;
+          var request = new RestRequest(Method.POST);
+          request.AddHeader("Authorization", "Basic YWRtaW46MTIzNA==");
+          request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+          request.AddParameter("id", "4");
+          request.AddParameter("summa", "20");
+          IRestResponse response = client.Execute(request);
+          Console.WriteLine(response.Content);
+}
+{
 
     QString id, summa;
     id=getTunnistautuminen();
@@ -69,7 +102,7 @@ void Nosta::on_btn20_clicked()
 {
     QString js="{\"attr\":\"value\"}";
     QString id, summa;
-    id=getTunnistautuminen();
+    id="4";//getTunnistautuminen();
     summa="20";
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
@@ -84,6 +117,9 @@ void Nosta::on_btn20_clicked()
     //networkManager->post(request,postData)
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+    QUrlQuery paramsQuery;
+    paramsQuery.addQueryItem("id", id);
+    paramsQuery.addQueryItem("summa", summa);
     QJsonObject json;
     json.insert("id",id);
     json.insert("summa",summa);
