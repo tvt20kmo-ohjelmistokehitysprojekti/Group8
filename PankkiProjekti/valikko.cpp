@@ -13,7 +13,6 @@ Valikko::Valikko(QWidget *parent) :
     ui(new Ui::Valikko)
 {
     ui->setupUi(this);
-    ui->labelNaytaSaldo->setText("");
 }
 
 Valikko::~Valikko()
