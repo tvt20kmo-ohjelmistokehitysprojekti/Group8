@@ -69,20 +69,26 @@ void MuuSumma::on_btnNostaMuu_clicked()
         if(response_data=="true")
         {
             hide();
+            QString id=getTunnistautuminen3();
             NostoOnnistui *nosto = new NostoOnnistui(summa+"€ nostettu");
+            nosto->setTunnistautuminen4(id);
             nosto->show();
         }
         else
         {
             hide();
+            QString id=getTunnistautuminen3();
             NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+            nosto->setTunnistautuminen4(id);
             nosto->show();
         }
     }
     else
     {
         hide();
+        QString id=getTunnistautuminen3();
         NostoOnnistui *nosto = new NostoOnnistui("Vain 20€ ja 50€ seteleitä.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
 }
