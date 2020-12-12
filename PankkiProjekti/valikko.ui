@@ -67,10 +67,10 @@
     <string>Tilitapahtumat</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnPeruuta">
+  <widget class="QPushButton" name="btnLopeta">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>430</x>
      <y>530</y>
      <width>161</width>
      <height>61</height>

@@ -69,13 +69,17 @@ void Nosta::on_btn20_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("20€ Nostettu.");
+        QString id=getTunnistautuminen2();
+        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
     else
     {
         hide();
+        QString id=getTunnistautuminen2();
         NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
 }
@@ -110,13 +114,17 @@ void Nosta::on_btn40_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("40€ Nostettu.");
+        QString id=getTunnistautuminen2();
+        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
     else
     {
         hide();
+        QString id=getTunnistautuminen2();
         NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
 }
@@ -151,13 +159,17 @@ void Nosta::on_btn50_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("50€ Nostettu.");
+        QString id=getTunnistautuminen2();
+        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
     else
     {
         hide();
+        QString id=getTunnistautuminen2();
         NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
 }
@@ -192,13 +204,17 @@ void Nosta::on_btn100_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("100€ Nostettu.");
+        QString id=getTunnistautuminen2();
+        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
     else
     {
         hide();
+        QString id=getTunnistautuminen2();
         NostoOnnistui *nosto = new NostoOnnistui("Nosto epäonnistui.");
+        nosto->setTunnistautuminen4(id);
         nosto->show();
     }
 }
@@ -222,3 +238,8 @@ void Nosta::on_btnPeruuta_clicked()
 }
 
 
+
+void Nosta::on_btnLopeta_clicked()
+{
+    QApplication::quit();
+}

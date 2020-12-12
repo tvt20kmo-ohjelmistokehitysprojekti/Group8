@@ -14,6 +14,8 @@ class NostoOnnistui : public QWidget
 public:
     explicit NostoOnnistui(QString name, QWidget *parent = nullptr);
     ~NostoOnnistui();
+    QString getTunnistautuminen4() const;
+    void setTunnistautuminen4(const QString &value);
 
 private slots:
     void on_btnLopeta_clicked();
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::NostoOnnistui *ui;
+    QString Tunnistautuminen4;
 };
 
 #endif // NOSTOONNISTUI_H
