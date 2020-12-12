@@ -64,9 +64,9 @@ class Tilitapahtumat extends REST_Controller {
                 // Invalid id, set the response and exit.
                 $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
             }
-
+                
             // Get the user from the database, using the id as key for retrieval.
-            $user=$this->Tilitapahtumat_model->get_tilitapahtumat($id);
+            $tilitapahtumat=$this->Tilitapahtumat_model->get_tilitapahtumat($id);
             if (!empty($tilitapahtumat))
             {
                 $this->set_response($tilitapahtumat, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code

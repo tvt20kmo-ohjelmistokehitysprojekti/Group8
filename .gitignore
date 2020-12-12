@@ -5,3 +5,4 @@ vendor
 ./application/config/config.php
 build*/
 *.exe
+
