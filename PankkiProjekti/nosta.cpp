@@ -283,14 +283,18 @@ void Nosta::on_btn100_clicked()
 void Nosta::on_btnMuu_clicked()
 {
     hide();
+    QString id=getTunnistautuminen2();
     MuuSumma *ms = new MuuSumma();
+    ms->setTunnistautuminen3(id);
     ms->show();
 }
 
 void Nosta::on_btnPeruuta_clicked()
 {
     hide();
+    QString id=getTunnistautuminen2();
     Valikko *va = new Valikko();
+    va->setTunnistautuminen(id);
     va->show();
 }
 

@@ -94,7 +94,7 @@ void Valikko::on_btnTilitapahtumat_clicked()
     foreach (const QJsonValue &value, jsarr)
     {
         QJsonObject jsob = value.toObject();
-        tapahtumat+=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
+        tapahtumat=jsob["Pvm"].toString()+", "+jsob["tapahtuma"].toString()+" "+jsob["summa"].toString()+" €"+"\r";
     }
     ui->textEditTapahtumat->setText("");
     ui->textEditTapahtumat->setText(tapahtumat);
