@@ -17,7 +17,6 @@ public:
     QString getTunnistautuminen3() const;
     void setTunnistautuminen3(const QString &value);
 
-
 private slots:
     void on_btnNostaMuu_clicked();
 

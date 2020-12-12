@@ -40,7 +40,7 @@ void MuuSumma::on_btnNostaMuu_clicked()
 {
     QString id, summa;
     id=getTunnistautuminen3();
-    summa="100";
+    summa=ui->lineEditMuuSumma->text();
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~c9pasa02/Group8/index.php/api/nosto/debitNosto/") );
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
     QString username="admin";
@@ -66,7 +66,7 @@ void MuuSumma::on_btnNostaMuu_clicked()
     if(response_data=="true")
     {
         hide();
-        NostoOnnistui *nosto = new NostoOnnistui("100€ Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui(summa+"€ nostettu");
         nosto->show();
     }
     else
