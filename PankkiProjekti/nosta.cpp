@@ -70,7 +70,7 @@ void Nosta::on_btn20_clicked()
     {
         hide();
         QString id=getTunnistautuminen2();
-        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui(summa+"€ Nostettu.");
         nosto->setTunnistautuminen4(id);
         nosto->show();
     }
@@ -115,7 +115,7 @@ void Nosta::on_btn40_clicked()
     {
         hide();
         QString id=getTunnistautuminen2();
-        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui(summa+"€ Nostettu.");
         nosto->setTunnistautuminen4(id);
         nosto->show();
     }
@@ -160,7 +160,7 @@ void Nosta::on_btn50_clicked()
     {
         hide();
         QString id=getTunnistautuminen2();
-        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui(summa+"€ Nostettu.");
         nosto->setTunnistautuminen4(id);
         nosto->show();
     }
@@ -205,7 +205,7 @@ void Nosta::on_btn100_clicked()
     {
         hide();
         QString id=getTunnistautuminen2();
-        NostoOnnistui *nosto = new NostoOnnistui(summa+" Nostettu.");
+        NostoOnnistui *nosto = new NostoOnnistui(summa+"€ Nostettu.");
         nosto->setTunnistautuminen4(id);
         nosto->show();
     }
