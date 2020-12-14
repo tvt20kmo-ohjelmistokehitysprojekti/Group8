@@ -18,10 +18,10 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 class Login extends REST_Controller {
-    public function index_post(){
+    public function index_get(){
         $this->load->model('Login_model');
-        $idKortti=$this->input->post('idKortti');
-        $plaintext_pin=$this->input->post('pin');
+        $idKortti=$this->input->get('idKortti');
+        $plaintext_pin=$this->input->get('pin');
         $encrypted_pin=$this->Login_model->check_login($idKortti);
 
         if(password_verify($plaintext_pin,$encrypted_pin)){
