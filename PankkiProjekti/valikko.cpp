@@ -2,6 +2,7 @@
 #include "ui_valikko.h"
 #include "nosta.h"
 #include "saldo.h"
+#include "mainwindow.h"
 #include "tilitapahtumat.h"
 #include <QtNetwork>
 #include <QNetworkAccessManager>
@@ -107,4 +108,11 @@ void Valikko::on_btnTilitapahtumat_clicked()
 void Valikko::on_btnLopeta_clicked()
 {
     QApplication::quit();
+}
+
+void Valikko::on_btnPeruuta_clicked()
+{
+    hide();
+    MainWindow *ma = new MainWindow();
+    ma->show();
 }

@@ -26,6 +26,8 @@ private slots:
 
     void on_btnLopeta_clicked();
 
+    void on_btnPeruuta_clicked();
+
 private:
     Ui::Valikko *ui;
     QString Tunnistautuminen;
