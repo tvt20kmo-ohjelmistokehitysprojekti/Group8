@@ -5,4 +5,8 @@ vendor
 ./application/config/config.php
 build*/
 *.exe
+*.user
 
+
+PankkiProjekti/PankkiProjekti.pro.user
+*.user
